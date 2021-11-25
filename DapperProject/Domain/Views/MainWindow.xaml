@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*" />
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" >
@@ -23,24 +23,24 @@
             <StackPanel>
                 <WrapPanel Margin="0,10,0,10" >
                     <TextBlock Text="Name" FontSize="22" Margin="10,0,0,0" ></TextBlock>
-                    <TextBox Width="150" Margin="10,0,0,0" ></TextBox>
+                    <TextBox Width="150" Margin="10,0,0,0" FontSize="22" ></TextBox>
                 </WrapPanel>
                 <WrapPanel Margin="0,0,0,10"  >
                     <TextBlock Text="Price" FontSize="22" Margin="10,0,0,0" ></TextBlock>
-                    <TextBox Width="150" Margin="10,0,0,0" ></TextBox>
+                    <TextBox Width="150" Margin="10,0,0,0" FontSize="22" ></TextBox>
                 </WrapPanel >
                 <WrapPanel Margin="0,0,0,10">
                     <TextBlock Text="Authorname" FontSize="22" Margin="10,0,0,0" ></TextBlock>
-                    <TextBox Width="150" Margin="10,0,0,0" ></TextBox>
+                    <TextBox Width="150" Margin="10,0,0,0" FontSize="22" ></TextBox>
                 </WrapPanel>
             </StackPanel>
         </Grid>
 
         <Grid Grid.Row="2">
             <Canvas>
-                <Button Width="150" Height="60" Canvas.Left="40" Canvas.Top="20" Content="Add" FontSize="30" BorderBrush="Red" BorderThickness="3" Background="GreenYellow" ></Button>
-                <Button Width="150" Height="60" Canvas.Left="280" Canvas.Top="20" Content="Update" FontSize="30" BorderBrush="Red" BorderThickness="3" Background="LightBlue" ></Button>
-                <Button Width="150" Height="60" Canvas.Left="540" Canvas.Top="20" Content="Delete" FontSize="30" BorderBrush="Red" BorderThickness="3" Background="Chocolate"></Button>
+                <Button Command="{Binding AddCommand}"  Width="150" Height="60" Canvas.Left="40" Canvas.Top="5" Content="Add" FontSize="30" BorderBrush="Red" BorderThickness="3" Background="GreenYellow" ></Button>
+                <Button Command="{Binding UpdateCommand}" Width="150" Height="60" Canvas.Left="280" Canvas.Top="5" Content="Update" FontSize="30" BorderBrush="Red" BorderThickness="3" Background="LightBlue" ></Button>
+                <Button Command="{Binding DeleteCommand}" Width="150" Height="60" Canvas.Left="540" Canvas.Top="5" Content="Delete" FontSize="30" BorderBrush="Red" BorderThickness="3" Background="Chocolate"></Button>
             </Canvas>
         </Grid>
     </Grid>
