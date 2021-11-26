@@ -40,14 +40,53 @@ namespace DapperProject.Domain.ViewModels
                     parameters.Add("@Name", bookname, DbType.String);
                     parameters.Add("@Authorname", authorname, DbType.String);
                     parameters.Add("@Price", price, DbType.Double);
-                    var data = connection.Query<Book>("SP_InsertBook",parameters,commandType: CommandType.StoredProcedure);         
-                    //MainView.mydatagrid.ItemsSource = data.ToList();  
-                    MainView.mydatagrid.ItemsSource = GetAll();  
-                    
+                    var data = connection.Query<Book>("SP_InsertBook", parameters, commandType: CommandType.StoredProcedure);
+                    MainView.mydatagrid.ItemsSource = GetAll();
+
                 }
                 MessageBox.Show("Book Added");
 
             });
+
+            UpdateCommand = new RelayCommand(sender =>
+            {
+                int id1 = int.Parse(MainView.IdTxtBx.Text);
+                double price1 = double.Parse(MainView.PriceTxtBx.Text);
+                string bookname1 = MainView.NameTxtBx.Text;
+                string authorname1 = MainView.AuthornameTxtBx.Text;
+
+                using (var connection = new SqlConnection(Conn))
+                {
+                    DynamicParameters parameters = new DynamicParameters();
+                    parameters.Add("@Id", id1, DbType.Int32);
+                    parameters.Add("@Name", bookname1, DbType.String);
+                    parameters.Add("@Authorname", authorname1, DbType.String);
+                    parameters.Add("@Price", price1, DbType.Double);
+                    var data = connection.Query<Book>("SP_UpdateBook", parameters, commandType: CommandType.StoredProcedure);
+                    MainView.mydatagrid.ItemsSource = GetAll();
+
+                }
+                MessageBox.Show("Book Updated");
+            });
+
+            DeleteCommand = new RelayCommand(sender =>
+            {
+                int id2 = int.Parse(MainView.IdTxtBx.Text);
+                
+
+                using (var connection = new SqlConnection(Conn))
+                {
+                    DynamicParameters parameters = new DynamicParameters();
+                    parameters.Add("@Id", id2, DbType.Int32);
+                    var data = connection.Query<Book>("SP_DeleteBook", parameters, commandType: CommandType.StoredProcedure);
+                    MainView.mydatagrid.ItemsSource = GetAll();
+
+                }
+                MessageBox.Show("Book Deleted");
+            });
+
+
+
 
         }
 
