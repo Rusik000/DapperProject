@@ -11,6 +11,7 @@ CREATE TABLE Books(
 [Price] MONEY NOT NULL
 )
 
+
 INSERT Books([Name],[Authorname],[Price])
 VALUES 
 ('Essek ne bilir zeferan nedi','Zelimxan Yaqub',5.60),

@@ -13,6 +13,8 @@ namespace DapperProject.Domain.Entities
         public string Name { get; set; }
 
         public string Authorname { get; set; }
+        public double Price { get; set; }
+
 
     }
 }
